@@ -228,7 +228,6 @@ void tempo_decorrido(time_t p_tempo){
   Calcula o tempo decorrido de jogo.
   */
 
-  printf("Entrou tempo\n");
   float min, seg, hor;
   time_t s_tempo;
 
@@ -325,18 +324,18 @@ Processamento processar_rodada(tabuleiro ** mat, time_t p_tempo){
     receber_entradas(&l, &c);
     if(mat[l-1][c-1].bomba) { 
       mat[l-1][c-1].clicado = true;
-      return perdeu; 
+      return perdeu;
     } else {  
       // clica elemento e seus vizinhos
       clicar_vizinhos(l-1, c-1, N, M, mat); 
     }
   } else if (decisao == marcar) { 
     receber_entradas(&l, &c);
-      mat[l-1][c-1].marcado = true;
+    mat[l-1][c-1].marcado = true;
   } else if (decisao == ajuda) { 
     pedir_ajuda(mat);
   }  else if (decisao == tempo) { 
-      tempo_decorrido(p_tempo);
+    tempo_decorrido(p_tempo);
   } else if (decisao == parar) {
     return parou;
   }
